@@ -1,0 +1,6 @@
+python-dotenv
+pydantic
+gspread
+oauth2client
+dateparser
+pytest
