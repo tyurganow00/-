@@ -1,0 +1,1161 @@
+Last login: Fri Aug  8 00:16:10 on ttys000
+macbook@MacBook ~ % scp -r wowquiz-new root@92.242.60.250:/opt/wq/
+scp: stat local "wowquiz-new": No such file or directory
+macbook@MacBook ~ % scp /Users/macbook/Downloads/wowquiz-new root@92.242.60.250:/opt/wq/
+root@92.242.60.250's password: 
+scp: local "/Users/macbook/Downloads/wowquiz-new" is not a regular file
+scp: failed to upload file /Users/macbook/Downloads/wowquiz-new to /opt/wq/
+macbook@MacBook ~ % scp -r /Users/macbook/Downloads/wowquiz-new root@92.242.60.250:/opt/wq/
+root@92.242.60.250's password: 
+requirements.txt                                                                   100%   61     0.6KB/s   00:00    
+.env                                                                               100%  240     2.1KB/s   00:00    
+config.py                                                                          100%  252     2.6KB/s   00:00    
+spreadsheet_utils.py                                                               100%  873     8.1KB/s   00:00    
+imap_utils.py                                                                      100%  505     5.4KB/s   00:00    
+parsers.py                                                                         100% 1198    12.7KB/s   00:00    
+main.py                                                                            100% 2804    30.0KB/s   00:00    
+logging_utils.py                                                                   100%  940     9.7KB/s   00:00    
+requirements.txt                                                                   100%   61     0.7KB/s   00:00    
+test_parsers.py                                                                    100%  582     5.2KB/s   00:00    
+README.md                                                                          100%  763     7.9KB/s   00:00    
+.env                                                                               100%  189     1.6KB/s   00:00    
+config.py                                                                          100%  252     2.7KB/s   00:00    
+spreadsheet_utils.py                                                               100%  873     9.1KB/s   00:00    
+imap_utils.py                                                                      100%  505     4.8KB/s   00:00    
+parsers.py                                                                         100% 1198    12.3KB/s   00:00    
+main.py                                                                            100% 3029    28.2KB/s   00:00    
+logging_utils.py                                                                   100%  940    10.1KB/s   00:00    
+macbook@MacBook ~ % scp /Users/macbook/Downloads/wowquiz-new/creds.json root@92.242.60.250:/opt/wq/         
+root@92.242.60.250's password: 
+creds.json                                                                         100% 2368    25.0KB/s   00:00    
+macbook@MacBook ~ % ssh root@92.242.60.250                               
+
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 09:47:19 PM MSK 2025
+
+  System load:  0.0               Processes:             97
+  Usage of /:   13.9% of 9.76GB   Users logged in:       0
+  Memory usage: 34%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Fri Aug  8 21:43:50 2025 from 82.115.5.141
+root@cv5124280:~# cd /opt/wq/wowquiz-new
+pip3 install -r requirements.txt
+python3 src/main.py
+Requirement already satisfied: python-dotenv in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 1)) (1.1.1)
+Collecting pydantic
+  Downloading pydantic-2.11.7-py3-none-any.whl (444 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 444.8/444.8 KB 2.3 MB/s eta 0:00:00
+Requirement already satisfied: gspread in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 3)) (6.2.1)
+Requirement already satisfied: oauth2client in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 4)) (4.1.3)
+Requirement already satisfied: dateparser in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 5)) (1.2.2)
+Collecting pytest
+  Downloading pytest-8.4.1-py3-none-any.whl (365 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 365.5/365.5 KB 16.8 MB/s eta 0:00:00
+Collecting pydantic-core==2.33.2
+  Downloading pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 21.5 MB/s eta 0:00:00
+Collecting typing-inspection>=0.4.0
+  Downloading typing_inspection-0.4.1-py3-none-any.whl (14 kB)
+Collecting annotated-types>=0.6.0
+  Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Requirement already satisfied: typing-extensions>=4.12.2 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (4.14.1)
+Requirement already satisfied: google-auth>=1.12.0 in /usr/local/lib/python3.10/dist-packages (from gspread->-r requirements.txt (line 3)) (2.40.3)
+Requirement already satisfied: google-auth-oauthlib>=0.4.1 in /usr/local/lib/python3.10/dist-packages (from gspread->-r requirements.txt (line 3)) (1.2.2)
+Requirement already satisfied: pyasn1>=0.1.7 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 4)) (0.4.8)
+Requirement already satisfied: pyasn1-modules>=0.0.5 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 4)) (0.2.1)
+Requirement already satisfied: rsa>=3.1.4 in /usr/local/lib/python3.10/dist-packages (from oauth2client->-r requirements.txt (line 4)) (4.9.1)
+Requirement already satisfied: httplib2>=0.9.1 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 4)) (0.20.2)
+Requirement already satisfied: six>=1.6.1 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 4)) (1.16.0)
+Requirement already satisfied: tzlocal>=0.2 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 5)) (5.3.1)
+Requirement already satisfied: python-dateutil>=2.7.0 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: regex>=2024.9.11 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 5)) (2025.7.34)
+Requirement already satisfied: pytz>=2024.2 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 5)) (2025.2)
+Collecting pygments>=2.7.2
+  Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 85.8 MB/s eta 0:00:00
+Collecting pluggy<2,>=1.5
+  Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Collecting packaging>=20
+  Downloading packaging-25.0-py3-none-any.whl (66 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.5/66.5 KB 20.9 MB/s eta 0:00:00
+Collecting iniconfig>=1
+  Downloading iniconfig-2.1.0-py3-none-any.whl (6.0 kB)
+Requirement already satisfied: exceptiongroup>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (1.3.0)
+Collecting tomli>=1
+  Downloading tomli-2.2.1-py3-none-any.whl (14 kB)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /usr/local/lib/python3.10/dist-packages (from google-auth>=1.12.0->gspread->-r requirements.txt (line 3)) (5.5.2)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /usr/local/lib/python3.10/dist-packages (from google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 3)) (2.0.0)
+Requirement already satisfied: pyparsing!=3.0.0,!=3.0.1,!=3.0.2,!=3.0.3,<4,>=2.4.2 in /usr/lib/python3/dist-packages (from httplib2>=0.9.1->oauth2client->-r requirements.txt (line 4)) (2.4.7)
+Requirement already satisfied: oauthlib>=3.0.0 in /usr/lib/python3/dist-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 3)) (3.2.0)
+Requirement already satisfied: requests>=2.0.0 in /usr/lib/python3/dist-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 3)) (2.25.1)
+Installing collected packages: typing-inspection, tomli, pygments, pydantic-core, pluggy, packaging, iniconfig, annotated-types, pytest, pydantic
+Successfully installed annotated-types-0.7.0 iniconfig-2.1.0 packaging-25.0 pluggy-1.6.0 pydantic-2.11.7 pydantic-core-2.33.2 pygments-2.19.2 pytest-8.4.1 tomli-2.2.1 typing-inspection-0.4.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+Traceback (most recent call last):
+  File "/opt/wq/wowquiz-new/src/main.py", line 7, in <module>
+    from config import settings
+  File "/opt/wq/wowquiz-new/src/config.py", line 1, in <module>
+    from pydantic import BaseSettings
+  File "/usr/local/lib/python3.10/dist-packages/pydantic/__init__.py", line 426, in __getattr__
+    return _getattr_migration(attr_name)
+  File "/usr/local/lib/python3.10/dist-packages/pydantic/_migration.py", line 296, in wrapper
+    raise PydanticImportError(
+pydantic.errors.PydanticImportError: `BaseSettings` has been moved to the `pydantic-settings` package. See https://docs.pydantic.dev/2.11/migration/#basesettings-has-moved-to-pydantic-settings for more details.
+
+For further information visit https://errors.pydantic.dev/2.11/u/import-error
+root@cv5124280:/opt/wq/wowquiz-new# pip3 install pydantic-settings
+Collecting pydantic-settings
+  Downloading pydantic_settings-2.10.1-py3-none-any.whl (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.2/45.2 KB 669.2 kB/s eta 0:00:00
+Requirement already satisfied: typing-inspection>=0.4.0 in /usr/local/lib/python3.10/dist-packages (from pydantic-settings) (0.4.1)
+Requirement already satisfied: python-dotenv>=0.21.0 in /usr/local/lib/python3.10/dist-packages (from pydantic-settings) (1.1.1)
+Requirement already satisfied: pydantic>=2.7.0 in /usr/local/lib/python3.10/dist-packages (from pydantic-settings) (2.11.7)
+Requirement already satisfied: pydantic-core==2.33.2 in /usr/local/lib/python3.10/dist-packages (from pydantic>=2.7.0->pydantic-settings) (2.33.2)
+Requirement already satisfied: typing-extensions>=4.12.2 in /usr/local/lib/python3.10/dist-packages (from pydantic>=2.7.0->pydantic-settings) (4.14.1)
+Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.10/dist-packages (from pydantic>=2.7.0->pydantic-settings) (0.7.0)
+Installing collected packages: pydantic-settings
+Successfully installed pydantic-settings-2.10.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+root@cv5124280:/opt/wq/wowquiz-new# nano src/config.py
+root@cv5124280:/opt/wq/wowquiz-new# pip3 install pydantic-settings
+Requirement already satisfied: pydantic-settings in /usr/local/lib/python3.10/dist-packages (2.10.1)
+Requirement already satisfied: python-dotenv>=0.21.0 in /usr/local/lib/python3.10/dist-packages (from pydantic-settings) (1.1.1)
+Requirement already satisfied: pydantic>=2.7.0 in /usr/local/lib/python3.10/dist-packages (from pydantic-settings) (2.11.7)
+Requirement already satisfied: typing-inspection>=0.4.0 in /usr/local/lib/python3.10/dist-packages (from pydantic-settings) (0.4.1)
+Requirement already satisfied: pydantic-core==2.33.2 in /usr/local/lib/python3.10/dist-packages (from pydantic>=2.7.0->pydantic-settings) (2.33.2)
+Requirement already satisfied: typing-extensions>=4.12.2 in /usr/local/lib/python3.10/dist-packages (from pydantic>=2.7.0->pydantic-settings) (4.14.1)
+Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.10/dist-packages (from pydantic>=2.7.0->pydantic-settings) (0.7.0)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+root@cv5124280:/opt/wq/wowquiz-new# python3 src/main.py
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/gspread/client.py", line 168, in open_by_key
+    spreadsheet = Spreadsheet(self.http_client, {"id": key})
+  File "/usr/local/lib/python3.10/dist-packages/gspread/spreadsheet.py", line 29, in __init__
+    metadata = self.fetch_sheet_metadata()
+  File "/usr/local/lib/python3.10/dist-packages/gspread/spreadsheet.py", line 230, in fetch_sheet_metadata
+    return self.client.fetch_sheet_metadata(self.id, params=params)
+  File "/usr/local/lib/python3.10/dist-packages/gspread/http_client.py", line 305, in fetch_sheet_metadata
+    r = self.request("get", url, params=params)
+  File "/usr/local/lib/python3.10/dist-packages/gspread/http_client.py", line 128, in request
+    raise APIError(response)
+gspread.exceptions.APIError: APIError: [404]: Requested entity was not found.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/wq/wowquiz-new/src/main.py", line 84, in <module>
+    main_loop()
+  File "/opt/wq/wowquiz-new/src/main.py", line 26, in main_loop
+    spreadsheet = connect_sheets(settings.google_credentials_file, settings.spreadsheet_id)
+  File "/opt/wq/wowquiz-new/src/spreadsheet_utils.py", line 11, in connect_sheets
+    return client.open_by_key(spreadsheet_id)
+  File "/usr/local/lib/python3.10/dist-packages/gspread/client.py", line 171, in open_by_key
+    raise SpreadsheetNotFound(ex.response) from ex
+gspread.exceptions.SpreadsheetNotFound: <Response [404]>
+root@cv5124280:/opt/wq/wowquiz-new# Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % ssh root@92.242.60.250
+
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 09:51:20 PM MSK 2025
+
+  System load:  0.0               Processes:             100
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 35%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Fri Aug  8 21:47:37 2025 from 82.115.5.141
+root@cv5124280:~# cat /opt/wq/creds.json
+{
+  "type": "service_account",
+  "project_id": "parsingmail-468311",
+  "private_key_id": "f57baf557aeffef1ccc7fa1f0992ac48d89159bc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDE8z/tCq9m1RAC\nINed53CGAA362ZgCahauYaKnrcFK9a51iryIiNnZVppYeBBpZzr/L14QTRwYm8Od\nuTOABn+qAQee31q5oTybbxqw3t+B4CY8Y4uAW44olJED6q6NqXJQASPbTEx7nwrx\nG2WUTHSeCUTcZ8Ht2Vwti0KG9Ep6MCw247eqdax1E1yNvU312BFVDrbLShBjWSe3\ngPtW2jV5GFKKerCBDN58XvVo0JnVv6/f413ynNkKVNBy/5zNZVRL2+ZMl67Vk30/\nS8Bx+b/pVFTtlkEbsQHcyOrUGLbMRqp0x7bjB23kW16ecyS7tdESjkrsBPF13gCM\nxiraDrO3AgMBAAECggEAKQI1V1gYOaM3mBnai4h7R4uPXaIdIrOQUXMG+T8WtlL9\npn/izdMg+T4tGSq20BusjyH/xgkoRn94dcjwTkIMJwvb2FrNe0V1Zy/1MMrXYyWX\nEI/xpiJqMUzt/RDKk7iqkroKC0mRy1PMZXO87OoWhimL6xC3spzFsr4CdjM7psEv\nTNWQBPt+98qozn0mTzbHitzaRQQJyNyGnxj8UQXUpR/dV4BHl8wBAjzxT4zbyfYR\nvn828KsTeq/iwwYK6LqZd9u9DUD/N0ZgUn3RC7nr+Ng18sRJ36+7ZJjebdDMS6Wd\nrfkaJz42Tz5AsRBC6bI56GJ/sBZKTKAJcUbxmZ8oQQKBgQDyLxVfTaB1jHWPntV3\nR7PO25OmS19RfD9i+HJLvXGHvTkeZ5xoNJkRPAShkRzl68k9Rq+fMmwfHwPjq2Xs\nmpwIhbdAvxgHaQikE+sJY3V2EssZTh1HLARxhA+/U8Rp1o1tQtvbNvV5M8KpT6pS\n7kEfAheyzRCv9s81wxpOJge1BwKBgQDQL4+rpasnw42xcmohkErtwsAK8vxKRfIe\nk53MfVdQJAStc2TFihsDk3X9Av8+RdopuUONOfFjs8xWy2mNGkHhzvmrRlJu83j1\ncYAXMSE0D90JvYWSMYeC3uP2D0urPVnpuGqZSuLWwkukn8XH5eXJ6mkCtGW1pDvj\n3TZLhvOP0QKBgHV3Bsu50AkTvnWRmYIIQhsj/0JaLnpMZEYxsOYxlZ471jd8E62r\nTU7BqJFg2/5c1bel0ErL3wtdNLq5iG8xMlsj2BVMWnBFro4+pvJfzjodtWqpq6O4\notMYNbcb/xlCmkgTdKWny3ok89bBMCCXNPjAQBRWSDDA6hHudpTO91ADAoGBAKGQ\n17IBb1P7ysI0pjMIFW5x3rJgovVNVTrvmt4xRAq4+TxXOpSnupFK5p2Frur4MPiC\ng+9dUX3r8qBFWtQb1ZdWFqMafy0GHRB2lk7pXPhXe1Zs0/WCJMWnD0lN047AnT/q\nVChFWsgKn8PSDx80xuGt3vMvZ2PRYn1TlyiEQg+RAoGBAOq5I46NLmS1O5q1pyr4\nT4uK8lsoAZCN2fcBtIifhci42PENfzk6gpPx9uOM8HPupWAf5KKYLzjaMQApVWbj\nh+C8f1+/Mcwp+Pq9cpTABgxmUOBsQGRvbd72FHspNG9aiFVYnSkTFf/m9DRhb5Om\nUr2pYCzXzfla49vlmSf4SLWL\n-----END PRIVATE KEY-----\n",
+  "client_email": "wowparsing@parsingmail-468311.iam.gserviceaccount.com",
+  "client_id": "109287379374501581112",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/wowparsing%40parsingmail-468311.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
+root@cv5124280:~# Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % ssh root@92.242.60.250
+
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 09:53:59 PM MSK 2025
+
+  System load:  0.0               Processes:             103
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 35%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Fri Aug  8 21:51:21 2025 from 82.115.5.141
+root@cv5124280:~# cd /opt/wq/wowquiz-new
+pip3 install -r requirements.txt
+Requirement already satisfied: python-dotenv in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 1)) (1.1.1)
+Requirement already satisfied: pydantic in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 2)) (2.11.7)
+Requirement already satisfied: gspread in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 3)) (6.2.1)
+Requirement already satisfied: oauth2client in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 4)) (4.1.3)
+Requirement already satisfied: dateparser in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 5)) (1.2.2)
+Requirement already satisfied: pytest in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 6)) (8.4.1)
+Requirement already satisfied: pydantic-core==2.33.2 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (2.33.2)
+Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (0.7.0)
+Requirement already satisfied: typing-inspection>=0.4.0 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (0.4.1)
+Requirement already satisfied: typing-extensions>=4.12.2 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (4.14.1)
+Requirement already satisfied: google-auth>=1.12.0 in /usr/local/lib/python3.10/dist-packages (from gspread->-r requirements.txt (line 3)) (2.40.3)
+Requirement already satisfied: google-auth-oauthlib>=0.4.1 in /usr/local/lib/python3.10/dist-packages (from gspread->-r requirements.txt (line 3)) (1.2.2)
+Requirement already satisfied: rsa>=3.1.4 in /usr/local/lib/python3.10/dist-packages (from oauth2client->-r requirements.txt (line 4)) (4.9.1)
+Requirement already satisfied: pyasn1>=0.1.7 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 4)) (0.4.8)
+Requirement already satisfied: httplib2>=0.9.1 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 4)) (0.20.2)
+Requirement already satisfied: pyasn1-modules>=0.0.5 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 4)) (0.2.1)
+Requirement already satisfied: six>=1.6.1 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 4)) (1.16.0)
+Requirement already satisfied: regex>=2024.9.11 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 5)) (2025.7.34)
+Requirement already satisfied: pytz>=2024.2 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 5)) (2025.2)
+Requirement already satisfied: python-dateutil>=2.7.0 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: tzlocal>=0.2 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 5)) (5.3.1)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (2.19.2)
+Requirement already satisfied: tomli>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (2.2.1)
+Requirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (1.6.0)
+Requirement already satisfied: exceptiongroup>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (1.3.0)
+Requirement already satisfied: packaging>=20 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (25.0)
+Requirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (2.1.0)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /usr/local/lib/python3.10/dist-packages (from google-auth>=1.12.0->gspread->-r requirements.txt (line 3)) (5.5.2)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /usr/local/lib/python3.10/dist-packages (from google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 3)) (2.0.0)
+Requirement already satisfied: pyparsing!=3.0.0,!=3.0.1,!=3.0.2,!=3.0.3,<4,>=2.4.2 in /usr/lib/python3/dist-packages (from httplib2>=0.9.1->oauth2client->-r requirements.txt (line 4)) (2.4.7)
+Requirement already satisfied: requests>=2.0.0 in /usr/lib/python3/dist-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 3)) (2.25.1)
+Requirement already satisfied: oauthlib>=3.0.0 in /usr/lib/python3/dist-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 3)) (3.2.0)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+root@cv5124280:/opt/wq/wowquiz-new# cat /opt/wq/.env
+MAIL_USER=wow-not@mail.ru
+MAIL_PASSWORD=ssuuqj55lUt0uZBLbOWS
+IMAP_SERVER=imap.mail.ru
+
+GOOGLE_CREDENTIALS_FILE=/opt/wq/parsingmail-468311-f57baf557aef.json
+DEFAULT_SPREADSHEET_ID=1afSHuB74PyqdjuHtQrg0QD1CCsVp_yCOxvt-vQuAx-g
+
+CHECK_INTERVAL_SECONDS=60
+LOGFILE=/opt/wq/auto_parser.log
+CONFIG_FILE=/opt/wq/config.json
+root@cv5124280:/opt/wq/wowquiz-new# nano .env
+root@cv5124280:/opt/wq/wowquiz-new# python3 src/main.py
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/gspread/client.py", line 168, in open_by_key
+    spreadsheet = Spreadsheet(self.http_client, {"id": key})
+  File "/usr/local/lib/python3.10/dist-packages/gspread/spreadsheet.py", line 29, in __init__
+    metadata = self.fetch_sheet_metadata()
+  File "/usr/local/lib/python3.10/dist-packages/gspread/spreadsheet.py", line 230, in fetch_sheet_metadata
+    return self.client.fetch_sheet_metadata(self.id, params=params)
+  File "/usr/local/lib/python3.10/dist-packages/gspread/http_client.py", line 305, in fetch_sheet_metadata
+    r = self.request("get", url, params=params)
+  File "/usr/local/lib/python3.10/dist-packages/gspread/http_client.py", line 128, in request
+    raise APIError(response)
+gspread.exceptions.APIError: APIError: [404]: Requested entity was not found.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/wq/wowquiz-new/src/main.py", line 84, in <module>
+    main_loop()
+  File "/opt/wq/wowquiz-new/src/main.py", line 26, in main_loop
+    spreadsheet = connect_sheets(settings.google_credentials_file, settings.spreadsheet_id)
+  File "/opt/wq/wowquiz-new/src/spreadsheet_utils.py", line 11, in connect_sheets
+    return client.open_by_key(spreadsheet_id)
+  File "/usr/local/lib/python3.10/dist-packages/gspread/client.py", line 171, in open_by_key
+    raise SpreadsheetNotFound(ex.response) from ex
+gspread.exceptions.SpreadsheetNotFound: <Response [404]>
+root@cv5124280:/opt/wq/wowquiz-new# Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % ssh root@92.242.60.250
+
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 09:58:28 PM MSK 2025
+
+  System load:  0.08              Processes:             97
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 34%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Fri Aug  8 21:53:59 2025 from 82.115.5.141
+root@cv5124280:~# cd /opt/wq/wowquiz-new
+root@cv5124280:/opt/wq/wowquiz-new# nano .env
+root@cv5124280:/opt/wq/wowquiz-new# python3 src/main.py
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/gspread/spreadsheet.py", line 327, in worksheet
+    item = finditem(
+  File "/usr/local/lib/python3.10/dist-packages/gspread/utils.py", line 224, in finditem
+    return next(item for item in seq if func(item))
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/wq/wowquiz-new/src/main.py", line 84, in <module>
+    main_loop()
+  File "/opt/wq/wowquiz-new/src/main.py", line 28, in main_loop
+    sheet = spreadsheet.worksheet("Заявки")
+  File "/usr/local/lib/python3.10/dist-packages/gspread/spreadsheet.py", line 333, in worksheet
+    raise WorksheetNotFound(title)
+gspread.exceptions.WorksheetNotFound: Заявки
+root@cv5124280:/opt/wq/wowquiz-new# Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % ssh root@92.242.60.250
+
+OZdHgxcoKPiI40cg
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 10:13:03 PM MSK 2025
+
+  System load:  0.02              Processes:             99
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 35%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Fri Aug  8 21:58:28 2025 from 82.115.5.141
+root@cv5124280:~# cd /opt/wq/wowquiz-new
+root@cv5124280:/opt/wq/wowquiz-new# mkdir -p ../wowquiz-backup-$(date +%Y%m%d_%H%M%S)
+root@cv5124280:/opt/wq/wowquiz-new# cp -r . ../wowquiz-backup-$(date +%Y%m%d_%H%M%S)/
+root@cv5124280:/opt/wq/wowquiz-new# ls ../ | grep wowquiz-backup
+wowquiz-backup-20250808_221314
+wowquiz-backup-20250808_221319
+root@cv5124280:/opt/wq/wowquiz-new# Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % scp -r /Users/macbook/Downloads/wowquiz-new/src root@92.242.60.250:/opt/wq/wowquiz-new/src/
+root@92.242.60.250's password: 
+config.py                                                                          100%  350     3.8KB/s   00:00    
+spreadsheet_utils.py                                                               100% 2654    28.6KB/s   00:00    
+imap_utils.py                                                                      100%  505     5.5KB/s   00:00    
+parsers.py                                                                         100% 5195    51.1KB/s   00:00    
+main.py                                                                            100% 4119    40.2KB/s   00:00    
+logging_utils.py                                                                   100% 1011    10.8KB/s   00:00    
+macbook@MacBook ~ % ssh root@92.242.60.250                                                                     
+
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 10:20:48 PM MSK 2025
+
+  System load:  0.0               Processes:             97
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 34%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Fri Aug  8 22:13:03 2025 from 82.115.5.141
+root@cv5124280:~# cd /opt/wq/wowquiz-new
+root@cv5124280:/opt/wq/wowquiz-new# cat src/main.py | head -20
+import signal
+import sys
+import logging
+import time
+import email
+
+from config import settings
+from imap_utils import connect_imap, fetch_unseen_emails, fetch_email
+from spreadsheet_utils import connect_sheets, ensure_id_column
+from logging_utils import setup_logging, log_event
+from parsers import parse_email
+
+LOGFILE = "booking_processor.log"
+
+def graceful_shutdown(signum, frame):
+    print("Shutting down gracefully...")
+    sys.exit(0)
+
+def main_loop():
+    setup_logging(LOGFILE)
+root@cv5124280:/opt/wq/wowquiz-new# python3 src/main.pyConnection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % ssh root@92.242.60.250
+
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 10:22:22 PM MSK 2025
+
+  System load:  0.0               Processes:             98
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 34%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Fri Aug  8 22:21:16 2025 from 82.115.5.141
+root@cv5124280:~# python3 src/main.py
+python3: can't open file '/root/src/main.py': [Errno 2] No such file or directory
+root@cv5124280:~# Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % ssh root@92.242.60.250
+
+OZdHgxcoKPiI40cg
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 10:23:37 PM MSK 2025
+
+  System load:  0.0               Processes:             99
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 34%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Fri Aug  8 22:22:22 2025 from 82.115.5.141
+root@cv5124280:~# cd /opt/wq/wowquiz-new
+root@cv5124280:/opt/wq/wowquiz-new# python3 src/main.py
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/gspread/spreadsheet.py", line 327, in worksheet
+    item = finditem(
+  File "/usr/local/lib/python3.10/dist-packages/gspread/utils.py", line 224, in finditem
+    return next(item for item in seq if func(item))
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/wq/wowquiz-new/src/main.py", line 84, in <module>
+    main_loop()
+  File "/opt/wq/wowquiz-new/src/main.py", line 28, in main_loop
+    sheet = spreadsheet.worksheet("Заявки")
+  File "/usr/local/lib/python3.10/dist-packages/gspread/spreadsheet.py", line 333, in worksheet
+    raise WorksheetNotFound(title)
+gspread.exceptions.WorksheetNotFound: Заявки
+root@cv5124280:/opt/wq/wowquiz-new# Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % scp /Users/macbook/Downloads/wowquiz-new/src/spreadsheet_utils.py root@92.242.60.250:/opt/wq/wowquiz-new/src/
+root@92.242.60.250's password: 
+spreadsheet_utils.py                                                               100% 2218    22.9KB/s   00:00    
+macbook@MacBook ~ % scp /Users/macbook/Downloads/wowquiz-new/src/main.py root@92.242.60.250:/opt/wq/wowquiz-new/src/
+root@92.242.60.250's password: 
+main.py                                                                            100% 4179    44.4KB/s   00:00    
+macbook@MacBook ~ % ssh root@92.242.60.250
+
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 10:29:09 PM MSK 2025
+
+  System load:  0.0               Processes:             99
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 35%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Fri Aug  8 22:23:37 2025 from 82.115.5.141
+root@cv5124280:~# nano /opt/wq/wowquiz-new/requirements.txt
+root@cv5124280:~# cd /opt/wq/wowquiz-new
+pip3 install -r requirements.txt
+Requirement already satisfied: python-dotenv in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 1)) (1.1.1)
+Requirement already satisfied: pydantic in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 2)) (2.11.7)
+Requirement already satisfied: gspread in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 3)) (6.2.1)
+Requirement already satisfied: oauth2client in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 4)) (4.1.3)
+Requirement already satisfied: dateparser in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 5)) (1.2.2)
+Requirement already satisfied: pytest in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 6)) (8.4.1)
+Requirement already satisfied: pydantic-core==2.33.2 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (2.33.2)
+Requirement already satisfied: typing-inspection>=0.4.0 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (0.4.1)
+Requirement already satisfied: typing-extensions>=4.12.2 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (4.14.1)
+Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (0.7.0)
+Requirement already satisfied: google-auth-oauthlib>=0.4.1 in /usr/local/lib/python3.10/dist-packages (from gspread->-r requirements.txt (line 3)) (1.2.2)
+Requirement already satisfied: google-auth>=1.12.0 in /usr/local/lib/python3.10/dist-packages (from gspread->-r requirements.txt (line 3)) (2.40.3)
+Requirement already satisfied: pyasn1-modules>=0.0.5 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 4)) (0.2.1)
+Requirement already satisfied: six>=1.6.1 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 4)) (1.16.0)
+Requirement already satisfied: httplib2>=0.9.1 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 4)) (0.20.2)
+Requirement already satisfied: rsa>=3.1.4 in /usr/local/lib/python3.10/dist-packages (from oauth2client->-r requirements.txt (line 4)) (4.9.1)
+Requirement already satisfied: pyasn1>=0.1.7 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 4)) (0.4.8)
+Requirement already satisfied: regex>=2024.9.11 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 5)) (2025.7.34)
+Requirement already satisfied: pytz>=2024.2 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 5)) (2025.2)
+Requirement already satisfied: tzlocal>=0.2 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 5)) (5.3.1)
+Requirement already satisfied: python-dateutil>=2.7.0 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (1.6.0)
+Requirement already satisfied: packaging>=20 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (25.0)
+Requirement already satisfied: exceptiongroup>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (1.3.0)
+Requirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (2.1.0)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (2.19.2)
+Requirement already satisfied: tomli>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 6)) (2.2.1)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /usr/local/lib/python3.10/dist-packages (from google-auth>=1.12.0->gspread->-r requirements.txt (line 3)) (5.5.2)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /usr/local/lib/python3.10/dist-packages (from google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 3)) (2.0.0)
+Requirement already satisfied: pyparsing!=3.0.0,!=3.0.1,!=3.0.2,!=3.0.3,<4,>=2.4.2 in /usr/lib/python3/dist-packages (from httplib2>=0.9.1->oauth2client->-r requirements.txt (line 4)) (2.4.7)
+Requirement already satisfied: oauthlib>=3.0.0 in /usr/lib/python3/dist-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 3)) (3.2.0)
+Requirement already satisfied: requests>=2.0.0 in /usr/lib/python3/dist-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 3)) (2.25.1)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+root@cv5124280:/opt/wq/wowquiz-new# Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % ssh root@92.242.60.250
+
+OZdHgxcoKPiI40cg
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 10:30:21 PM MSK 2025
+
+  System load:  0.02              Processes:             97
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 35%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Fri Aug  8 22:29:10 2025 from 82.115.5.141
+root@cv5124280:~# cd /opt/wq/wowquiz-new
+python3 src/main.py
+Traceback (most recent call last):
+  File "/opt/wq/wowquiz-new/src/main.py", line 98, in <module>
+    main_loop()
+  File "/opt/wq/wowquiz-new/src/main.py", line 38, in main_loop
+    imap = connect_imap(settings.imap_user, settings.imap_password, settings.imap_server)
+  File "/opt/wq/wowquiz-new/src/imap_utils.py", line 5, in connect_imap
+    imap.login(user, password)
+  File "/usr/lib/python3.10/imaplib.py", line 612, in login
+    raise self.error(dat[-1])
+imaplib.IMAP4.error: b'[AUTHENTICATIONFAILED] NEOBHODIM parol prilozheniya https://help.mail.ru/mail/security/protection/external / Application password is REQUIRED'
+root@cv5124280:/opt/wq/wowquiz-new# nano /opt/wq/wowquiz-new/.env
+root@cv5124280:/opt/wq/wowquiz-new# cd /opt/wq/wowquiz-new
+python3 src/main.py
+ERROR:root:Ошибка процесса: 'Settings' object has no attribute 'check_interval'
+ERROR:root:Ошибка процесса: 'Settings' object has no attribute 'check_interval'
+ERROR:root:Ошибка процесса: 'Settings' object has no attribute 'check_interval'
+ERROR:root:Ошибка процесса: 'Settings' object has no attribute 'check_interval'
+^CShutting down gracefully...
+root@cv5124280:/opt/wq/wowquiz-new# nano /opt/wq/wowquiz-new/.env
+root@cv5124280:/opt/wq/wowquiz-new# python3 src/main.py
+Traceback (most recent call last):
+  File "/opt/wq/wowquiz-new/src/main.py", line 7, in <module>
+    from config import settings
+  File "/opt/wq/wowquiz-new/src/config.py", line 13, in <module>
+    settings = Settings()
+  File "/usr/local/lib/python3.10/dist-packages/pydantic_settings/main.py", line 188, in __init__
+    super().__init__(
+  File "/usr/local/lib/python3.10/dist-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Settings
+check_interval
+  Extra inputs are not permitted [type=extra_forbidden, input_value='60', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/extra_forbidden
+root@cv5124280:/opt/wq/wowquiz-new# Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % scp -r /Users/macbook/Downloads/wowquiz-new/* root@92.242.60.250:/opt/wq/wowquiz-new/       
+root@92.242.60.250's password: 
+creds.json                                                                         100% 2368    23.0KB/s   00:00    
+README.md                                                                          100%  763     7.4KB/s   00:00    
+requirements.txt                                                                   100%   79     0.7KB/s   00:00    
+.DS_Store                                                                          100% 6148    63.9KB/s   00:00    
+config.py                                                                          100%  290     3.1KB/s   00:00    
+spreadsheet_utils.py                                                               100% 1792    18.8KB/s   00:00    
+imap_utils.py                                                                      100%  462     4.6KB/s   00:00    
+parsers.py                                                                         100% 1818    18.5KB/s   00:00    
+main.py                                                                            100% 4134    43.7KB/s   00:00    
+logging_utils.py                                                                   100%  402     3.7KB/s   00:00    
+test_parsers.py                                                                    100%  582     2.1KB/s   00:00    
+requirements.txt                                                                   100%   61     0.6KB/s   00:00    
+.env                                                                               100%  240     2.5KB/s   00:00    
+config.py                                                                          100%  252     2.5KB/s   00:00    
+spreadsheet_utils.py                                                               100%  873     8.5KB/s   00:00    
+imap_utils.py                                                                      100%  505     5.3KB/s   00:00    
+parsers.py                                                                         100% 1198    12.5KB/s   00:00    
+main.py                                                                            100% 2804    27.0KB/s   00:00    
+logging_utils.py                                                                   100%  940     8.3KB/s   00:00    
+macbook@MacBook ~ % ssh root@92.242.60.250                                                               
+
+root@92.242.60.250's password: 
+
+Permission denied, please try again.
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 10:38:32 PM MSK 2025
+
+  System load:  0.0               Processes:             99
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 35%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Fri Aug  8 22:30:22 2025 from 82.115.5.141
+root@cv5124280:~# ls /opt/wq/wowquiz-new/
+ls /opt/wq/wowquiz-new/src/
+cat /opt/wq/wowquiz-new/.env
+booking_processor.log  creds.json  README.md  requirements.txt  src  tests  wowquiz-new
+config.py  imap_utils.py  logging_utils.py  main.py  parsers.py  __pycache__  spreadsheet_utils.py  src
+IMAP_USER=wow-not@mail.ru
+IMAP_PASSWORD=ssuuqj55lUt0uZBLbOWS
+IMAP_SERVER=imap.mail.ru
+GOOGLE_CREDENTIALS_FILE=/opt/wq/creds.json
+SPREADSHEET_ID=1afSHuB74PyqdjuHtQrg0QD1CCsVp_yCOxvt-vQuAx-g
+CHECK_INTERVAL=60
+root@cv5124280:~# cd /opt/wq/wowquiz-new
+pip3 install -r requirements.txt
+Requirement already satisfied: python-dotenv in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 1)) (1.1.1)
+Requirement already satisfied: pydantic in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 2)) (2.11.7)
+Requirement already satisfied: pydantic-settings in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 3)) (2.10.1)
+Requirement already satisfied: gspread in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 4)) (6.2.1)
+Requirement already satisfied: oauth2client in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 5)) (4.1.3)
+Requirement already satisfied: dateparser in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 6)) (1.2.2)
+Requirement already satisfied: pytest in /usr/local/lib/python3.10/dist-packages (from -r requirements.txt (line 7)) (8.4.1)
+Requirement already satisfied: pydantic-core==2.33.2 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (2.33.2)
+Requirement already satisfied: typing-inspection>=0.4.0 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (0.4.1)
+Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (0.7.0)
+Requirement already satisfied: typing-extensions>=4.12.2 in /usr/local/lib/python3.10/dist-packages (from pydantic->-r requirements.txt (line 2)) (4.14.1)
+Requirement already satisfied: google-auth>=1.12.0 in /usr/local/lib/python3.10/dist-packages (from gspread->-r requirements.txt (line 4)) (2.40.3)
+Requirement already satisfied: google-auth-oauthlib>=0.4.1 in /usr/local/lib/python3.10/dist-packages (from gspread->-r requirements.txt (line 4)) (1.2.2)
+Requirement already satisfied: rsa>=3.1.4 in /usr/local/lib/python3.10/dist-packages (from oauth2client->-r requirements.txt (line 5)) (4.9.1)
+Requirement already satisfied: httplib2>=0.9.1 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 5)) (0.20.2)
+Requirement already satisfied: pyasn1-modules>=0.0.5 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 5)) (0.2.1)
+Requirement already satisfied: pyasn1>=0.1.7 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 5)) (0.4.8)
+Requirement already satisfied: six>=1.6.1 in /usr/lib/python3/dist-packages (from oauth2client->-r requirements.txt (line 5)) (1.16.0)
+Requirement already satisfied: pytz>=2024.2 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 6)) (2025.2)
+Requirement already satisfied: python-dateutil>=2.7.0 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 6)) (2.9.0.post0)
+Requirement already satisfied: tzlocal>=0.2 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 6)) (5.3.1)
+Requirement already satisfied: regex>=2024.9.11 in /usr/local/lib/python3.10/dist-packages (from dateparser->-r requirements.txt (line 6)) (2025.7.34)
+Requirement already satisfied: exceptiongroup>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 7)) (1.3.0)
+Requirement already satisfied: pygments>=2.7.2 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 7)) (2.19.2)
+Requirement already satisfied: iniconfig>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 7)) (2.1.0)
+Requirement already satisfied: tomli>=1 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 7)) (2.2.1)
+Requirement already satisfied: packaging>=20 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 7)) (25.0)
+Requirement already satisfied: pluggy<2,>=1.5 in /usr/local/lib/python3.10/dist-packages (from pytest->-r requirements.txt (line 7)) (1.6.0)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /usr/local/lib/python3.10/dist-packages (from google-auth>=1.12.0->gspread->-r requirements.txt (line 4)) (5.5.2)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /usr/local/lib/python3.10/dist-packages (from google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 4)) (2.0.0)
+Requirement already satisfied: pyparsing!=3.0.0,!=3.0.1,!=3.0.2,!=3.0.3,<4,>=2.4.2 in /usr/lib/python3/dist-packages (from httplib2>=0.9.1->oauth2client->-r requirements.txt (line 5)) (2.4.7)
+Requirement already satisfied: oauthlib>=3.0.0 in /usr/lib/python3/dist-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 4)) (3.2.0)
+Requirement already satisfied: requests>=2.0.0 in /usr/lib/python3/dist-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib>=0.4.1->gspread->-r requirements.txt (line 4)) (2.25.1)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+root@cv5124280:/opt/wq/wowquiz-new# python3 src/main.py
+^[[A^[[A^[[A^CShutting down gracefully...
+root@cv5124280:/opt/wq/wowquiz-new# ^C
+root@cv5124280:/opt/wq/wowquiz-new# python3 src/main.py
+Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % reboot
+reboot: Operation not permitted
+macbook@MacBook ~ % ssh root@92.242.60.250
+
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 10:46:37 PM MSK 2025
+
+  System load:  0.0               Processes:             97
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 35%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Fri Aug  8 22:39:00 2025 from 82.115.5.141
+root@cv5124280:~# reboot
+root@cv5124280:~# Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % ssh root@92.242.60.250
+
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 10:46:37 PM MSK 2025
+
+  System load:  0.0               Processes:             97
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 35%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Aug  8 22:46:37 2025 from 82.115.5.141
+root@cv5124280:~# ps aux | grep python
+root         569  0.7  2.3 400372 23392 ?        Ssl  22:47   0:00 /usr/bin/python3 /usr/bin/fail2ban-server -xf start
+root         573  0.3  1.9  32728 19292 ?        Ss   22:47   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root         590  2.9  5.8  64408 56964 ?        Ss   22:47   0:00 /usr/bin/python3 /opt/wq/auto_parser.py
+root         629  0.2  2.2 109800 21720 ?        Ssl  22:47   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         772  0.0  0.2   6612  2204 pts/0    S+   22:47   0:00 grep --color=auto python
+root@cv5124280:~# Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % ssh root@92.242.60.250
+
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 10:48:09 PM MSK 2025
+
+  System load:  0.13              Processes:             96
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 22%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Aug  8 22:47:11 2025 from 82.115.5.141
+root@cv5124280:~# ps aux | grep python
+root         569  0.1  2.3 400372 23436 ?        Ssl  22:47   0:00 /usr/bin/python3 /usr/bin/fail2ban-server -xf start
+root         573  0.0  1.9  32728 19292 ?        Ss   22:47   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root         590  0.6  5.8  64408 56964 ?        Ss   22:47   0:00 /usr/bin/python3 /opt/wq/auto_parser.py
+root         629  0.0  2.2 109800 21720 ?        Ssl  22:47   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         847  0.0  0.2   6612  2252 pts/0    S+   22:48   0:00 grep --color=auto python
+root@cv5124280:~# kill -9 590
+root@cv5124280:~# cd /opt/wq/wowquiz-new
+python3 src/main.py
+tail -n 50 /opt/wq/wowquiz-new/booking_processor.log
+^CShutting down gracefully...
+root@cv5124280:/opt/wq/wowquiz-new# tail -n 50 /opt/wq/wowquiz-new/booking_processor.log
+root@cv5124280:/opt/wq/wowquiz-new# tail -n 50 /opt/wq/booking_processor.log
+2025-08-08 19:28:14,173 ERROR Ошибка при обработке письма b'26': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:14,532 ERROR Ошибка при обработке письма b'36': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:14,746 ERROR Ошибка при обработке письма b'27': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:15,273 ERROR Ошибка при обработке письма b'28': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:15,774 ERROR Ошибка при обработке письма b'29': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:18,007 ERROR Ошибка при обработке письма b'30': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:18,523 ERROR Ошибка при обработке письма b'31': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:19,086 ERROR Ошибка при обработке письма b'32': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:19,616 ERROR Ошибка при обработке письма b'33': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:20,155 ERROR Ошибка при обработке письма b'34': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:20,690 ERROR Ошибка при обработке письма b'35': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:20,896 ERROR Ошибка записи в лог: APIError: [429]: Quota exceeded for quota metric 'Write requests' and limit 'Write requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'., row=['08.08.2025 19:28:20', '', '', '', '', '', '', 'Ошибка', "Parser: exception; APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926", '', '', "b'35'"]
+2025-08-08 19:28:21,176 ERROR Ошибка при обработке письма b'36': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:21,360 ERROR Ошибка записи в лог: APIError: [429]: Quota exceeded for quota metric 'Write requests' and limit 'Write requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'., row=['08.08.2025 19:28:21', '', '', '', '', '', '', 'Ошибка', "Parser: exception; APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926", '', '', "b'36'"]
+2025-08-08 21:57:16,395 ERROR Ошибка при обработке письма b'20': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:17,042 ERROR Ошибка при обработке письма b'21': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:17,631 ERROR Ошибка при обработке письма b'22': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:18,183 ERROR Ошибка при обработке письма b'23': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:18,740 ERROR Ошибка при обработке письма b'24': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:19,278 ERROR Ошибка при обработке письма b'25': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:19,820 ERROR Ошибка при обработке письма b'26': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:20,407 ERROR Ошибка при обработке письма b'27': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:20,955 ERROR Ошибка при обработке письма b'28': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:21,509 ERROR Ошибка при обработке письма b'29': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:22,075 ERROR Ошибка при обработке письма b'30': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:22,653 ERROR Ошибка при обработке письма b'31': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:23,217 ERROR Ошибка при обработке письма b'32': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:23,784 ERROR Ошибка при обработке письма b'33': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:24,388 ERROR Ошибка при обработке письма b'34': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:25,103 ERROR Ошибка при обработке письма b'35': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:25,650 ERROR Ошибка при обработке письма b'36': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:27,770 ERROR Ошибка при обработке письма b'18': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:28,305 ERROR Ошибка при обработке письма b'19': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:28,839 ERROR Ошибка при обработке письма b'20': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:29,363 ERROR Ошибка при обработке письма b'21': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:29,910 ERROR Ошибка при обработке письма b'22': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:30,457 ERROR Ошибка при обработке письма b'23': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:30,975 ERROR Ошибка при обработке письма b'24': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:31,499 ERROR Ошибка при обработке письма b'25': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:32,016 ERROR Ошибка при обработке письма b'26': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:32,529 ERROR Ошибка при обработке письма b'27': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:33,064 ERROR Ошибка при обработке письма b'28': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:33,634 ERROR Ошибка при обработке письма b'29': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:34,156 ERROR Ошибка при обработке письма b'30': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:34,668 ERROR Ошибка при обработке письма b'31': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:35,172 ERROR Ошибка при обработке письма b'32': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:35,685 ERROR Ошибка при обработке письма b'33': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:36,192 ERROR Ошибка при обработке письма b'34': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:36,693 ERROR Ошибка при обработке письма b'35': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:37,199 ERROR Ошибка при обработке письма b'36': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+root@cv5124280:/opt/wq/wowquiz-new# reboot
+root@cv5124280:/opt/wq/wowquiz-new# Connection to 92.242.60.250 closed by remote host.
+Connection to 92.242.60.250 closed.
+macbook@MacBook ~ % scp /Users/macbook/Downloads/wowquiz-new/src/spreadsheet_utils.py root@92.242.60.250:/opt/wq/wowquiz-new/
+root@92.242.60.250's password: 
+spreadsheet_utils.py                                                               100% 1939    20.1KB/s   00:00    
+macbook@MacBook ~ % scp /Users/macbook/Downloads/wowquiz-new/src/main.py root@92.242.60.250:/opt/wq/wowquiz-new/
+root@92.242.60.250's password: 
+Permission denied, please try again.
+root@92.242.60.250's password: 
+main.py                                                                            100% 4217    44.0KB/s   00:00    
+macbook@MacBook ~ % ssh root@92.242.60.250
+
+root@92.242.60.250's password: 
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-113-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Fri Aug  8 10:55:43 PM MSK 2025
+
+  System load:  0.0               Processes:             96
+  Usage of /:   14.1% of 9.76GB   Users logged in:       0
+  Memory usage: 22%               IPv4 address for ens3: 192.168.0.196
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+180 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Aug  8 22:48:10 2025 from 82.115.5.141
+root@cv5124280:~# cd /opt/wq/wowquiz-new
+root@cv5124280:/opt/wq/wowquiz-new# python3 src/main.py
+^[[A^[[A^CShutting down gracefully...
+root@cv5124280:/opt/wq/wowquiz-new# tail -n 50 /opt/wq/booking_processor.log
+2025-08-08 19:28:14,173 ERROR Ошибка при обработке письма b'26': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:14,532 ERROR Ошибка при обработке письма b'36': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:14,746 ERROR Ошибка при обработке письма b'27': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:15,273 ERROR Ошибка при обработке письма b'28': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:15,774 ERROR Ошибка при обработке письма b'29': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:18,007 ERROR Ошибка при обработке письма b'30': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:18,523 ERROR Ошибка при обработке письма b'31': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:19,086 ERROR Ошибка при обработке письма b'32': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:19,616 ERROR Ошибка при обработке письма b'33': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:20,155 ERROR Ошибка при обработке письма b'34': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:20,690 ERROR Ошибка при обработке письма b'35': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:20,896 ERROR Ошибка записи в лог: APIError: [429]: Quota exceeded for quota metric 'Write requests' and limit 'Write requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'., row=['08.08.2025 19:28:20', '', '', '', '', '', '', 'Ошибка', "Parser: exception; APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926", '', '', "b'35'"]
+2025-08-08 19:28:21,176 ERROR Ошибка при обработке письма b'36': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 19:28:21,360 ERROR Ошибка записи в лог: APIError: [429]: Quota exceeded for quota metric 'Write requests' and limit 'Write requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'., row=['08.08.2025 19:28:21', '', '', '', '', '', '', 'Ошибка', "Parser: exception; APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926", '', '', "b'36'"]
+2025-08-08 21:57:16,395 ERROR Ошибка при обработке письма b'20': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:17,042 ERROR Ошибка при обработке письма b'21': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:17,631 ERROR Ошибка при обработке письма b'22': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:18,183 ERROR Ошибка при обработке письма b'23': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:18,740 ERROR Ошибка при обработке письма b'24': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:19,278 ERROR Ошибка при обработке письма b'25': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:19,820 ERROR Ошибка при обработке письма b'26': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:20,407 ERROR Ошибка при обработке письма b'27': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:20,955 ERROR Ошибка при обработке письма b'28': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:21,509 ERROR Ошибка при обработке письма b'29': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:22,075 ERROR Ошибка при обработке письма b'30': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:22,653 ERROR Ошибка при обработке письма b'31': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:23,217 ERROR Ошибка при обработке письма b'32': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:23,784 ERROR Ошибка при обработке письма b'33': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:24,388 ERROR Ошибка при обработке письма b'34': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:25,103 ERROR Ошибка при обработке письма b'35': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 21:57:25,650 ERROR Ошибка при обработке письма b'36': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:27,770 ERROR Ошибка при обработке письма b'18': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:28,305 ERROR Ошибка при обработке письма b'19': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:28,839 ERROR Ошибка при обработке письма b'20': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:29,363 ERROR Ошибка при обработке письма b'21': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:29,910 ERROR Ошибка при обработке письма b'22': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:30,457 ERROR Ошибка при обработке письма b'23': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:30,975 ERROR Ошибка при обработке письма b'24': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:31,499 ERROR Ошибка при обработке письма b'25': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:32,016 ERROR Ошибка при обработке письма b'26': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:32,529 ERROR Ошибка при обработке письма b'27': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:33,064 ERROR Ошибка при обработке письма b'28': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:33,634 ERROR Ошибка при обработке письма b'29': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:34,156 ERROR Ошибка при обработке письма b'30': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:34,668 ERROR Ошибка при обработке письма b'31': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:35,172 ERROR Ошибка при обработке письма b'32': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:35,685 ERROR Ошибка при обработке письма b'33': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:36,192 ERROR Ошибка при обработке письма b'34': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:36,693 ERROR Ошибка при обработке письма b'35': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+2025-08-08 22:23:37,199 ERROR Ошибка при обработке письма b'36': APIError: [429]: Quota exceeded for quota metric 'Read requests' and limit 'Read requests per minute per user' of service 'sheets.googleapis.com' for consumer 'project_number:852926940174'.
+root@cv5124280:/opt/wq/wowquiz-new# journalctl -u wqparser.service -f
+Aug 08 22:48:32 cv5124280.novalocal systemd[1]: wqparser.service: Failed with result 'signal'.
+Aug 08 22:48:37 cv5124280.novalocal systemd[1]: wqparser.service: Scheduled restart job, restart counter is at 1.
+Aug 08 22:48:37 cv5124280.novalocal systemd[1]: Stopped WOWQUIZ Auto Parser Service.
+Aug 08 22:48:37 cv5124280.novalocal systemd[1]: Started WOWQUIZ Auto Parser Service.
+Aug 08 22:48:37 cv5124280.novalocal python3[848]: Парсер WOWQUIZ запущен. Проверка каждые 60 секунд.
+Aug 08 22:49:54 cv5124280.novalocal systemd[1]: Stopping WOWQUIZ Auto Parser Service...
+Aug 08 22:49:54 cv5124280.novalocal systemd[1]: wqparser.service: Deactivated successfully.
+Aug 08 22:49:54 cv5124280.novalocal systemd[1]: Stopped WOWQUIZ Auto Parser Service.
+-- Boot 4962638339bd4ad1b161945214eacfa8 --
+Aug 08 22:50:08 cv5124280.novalocal systemd[1]: Started WOWQUIZ Auto Parser Service.
+Aug 08 22:50:09 cv5124280.novalocal python3[591]: Парсер WOWQUIZ запущен. Проверка каждые 60 секунд.
+        
